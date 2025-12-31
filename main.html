@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Gift for Noah 💖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to bottom, #FFB6D9 0%, #FFC8E3 30%, #FFE5F0 60%, #FFB3D9 100%);
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bg-decoration {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            border: 8px solid #FF69B4;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 8px 8px 0px rgba(255, 105, 180, 0.5);
+            max-width: 600px;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .card-large {
+            max-width: 1000px;
+        }
+
+        h1 {
+            color: #FF1493;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-shadow: 3px 3px 0px rgba(255, 20, 147, 0.3);
+        }
+
+        .character {
+            font-size: 5rem;
+            margin: 30px 0;
+            display: inline-block;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .heart {
+            font-size: 3rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        button {
+            font-family: 'Courier New', monospace;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 15px 40px;
+            margin: 10px;
+            border: 4px solid;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            box-shadow: 4px 4px 0px;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .btn-yes {
+            background: #FFB6D9;
+            color: #C71585;
+            border-color: #FF69B4;
+            box-shadow: 4px 4px 0px #FF69B4;
+        }
+
+        .btn-no {
+            background: #FFC0CB;
+            color: #8B0000;
+            border-color: #FF1493;
+            box-shadow: 4px 4px 0px #FF1493;
+        }
+
+        .envelope-btn {
+            width: 250px;
+            height: 250px;
+            background: #FFE4E8;
+            border: 4px solid #FF69B4;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 7rem;
+            box-shadow: 6px 6px 0px #FF69B4;
+            margin: 20px auto;
+        }
+
+        .instruction {
+            color: #C71585;
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+
+        .letter-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            text-align: left;
+        }
+
+        .music-box {
+            background: linear-gradient(135deg, #FFB6D9 0%, #FF69B4 100%);
+            border: 4px solid #FF1493;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 4px 4px 0px #FF1493;
+        }
+
+        .music-title {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+        }
+
+        .music-display {
+            background: #FFE4E8;
+            border: 4px solid #FF1493;
+            border-radius: 12px;
+            padding: 30px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .music-display .icon {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+
+        .music-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .music-controls button {
+            width: 50px;
+            height: 50px;
+            background: #FFE4E8;
+            border: 2px solid #FF1493;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            padding: 0;
+            margin: 0;
+            box-shadow: 2px 2px 0px #FF1493;
+        }
+
+        .music-controls .play-btn {
+            width: 60px;
+            height: 60px;
+            background: #FFB6D9;
+            border: 4px solid #FF1493;
+            border-radius: 50%;
+            font-size: 1.5rem;
+        }
+
+        .letter-content {
+            background: #FFF0F5;
+            border: 4px solid #FF69B4;
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .letter-title {
+            color: #FF1493;
+            font-size: 1.3rem;
+            text-align: center;
+            border-bottom: 2px solid #FF69B4;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .letter-text {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .letter-text p {
+            margin-bottom: 15px;
+        }
+
+        .letter-text strong {
+            color: #FF1493;
+        }
+
+        .signature {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .emojis {
+            text-align: center;
+            font-size: 2rem;
+            margin-top: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .character {
+                font-size: 4rem;
+            }
+
+            button {
+                font-size: 1.2rem;
+                padding: 12px 30px;
+            }
+
+            .letter-container {
+                grid-template-columns: 1fr;
+            }
+
+            .envelope-btn {
+                width: 200px;
+                height: 200px;
+                font-size: 5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Decorations -->
+    <div class="bg-decoration" style="top: 10%; left: 10%;">🌸</div>
+    <div class="bg-decoration" style="top: 20%; right: 20%;">🌸</div>
+    <div class="bg-decoration" style="bottom: 20%; left: 20%;">🌷</div>
+    <div class="bg-decoration" style="bottom: 10%; right: 10%;">🌺</div>
+    <div class="bg-decoration" style="top: 50%; left: 5%;">💕</div>
+    <div class="bg-decoration" style="top: 33%; right: 10%;">🦋</div>
+    <div class="bg-decoration" style="top: 25%; left: 25%;">✨</div>
+    <div class="bg-decoration" style="bottom: 33%; right: 25%;">💫</div>
+
+    <div class="container">
+        <!-- Screen 1: Accept -->
+        <div id="screen-accept" class="card">
+            <h1>ACCEPT THE GIFT?</h1>
+            <div>
+                <span class="character">🐰</span>
+                <span class="heart">💗</span>
+            </div>
+            <p class="instruction" style="font-style: italic; margin: 20px 0;">
+                "A mysterious gift awaits you..."
+            </p>
+            <div>
+                <button class="btn-yes" onclick="showGifts()">YES ✓</button>
+                <button class="btn-no" onclick="showRefuse()">NO ✗</button>
+            </div>
+        </div>
+
+        <!-- Screen 2: Refuse -->
+        <div id="screen-refuse" class="card hidden">
+            <h1>FRIENDSHIP -50! 💔</h1>
+            <div class="character">😠🐰</div>
+            <p class="instruction" style="font-style: italic; margin: 20px 0;">
+                "The bunny looks disappointed..."
+            </p>
+            <button class="btn-yes" onclick="showAccept()">TRY AGAIN ↻</button>
+        </div>
+
+        <!-- Screen 3: Gifts/Envelope -->
+        <div id="screen-gifts" class="card hidden">
+            <h1>YOUR GIFT AWAITS</h1>
+            <button class="envelope-btn" onclick="showMessage()">
+                <span style="animation: bounce 2s ease-in-out infinite;">💌</span>
+            </button>
+            <p class="instruction">
+                <span>👆</span> Click to open the envelope
+            </p>
+        </div>
+
+        <!-- Screen 4: Message -->
+        <div id="screen-message" class="card card-large hidden">
+            <div class="letter-container">
+                <!-- Music Box -->
+                <div class="music-box">
+                    <h2 class="music-title">♪ Memory Box ♪</h2>
+                    <div class="music-display">
+                        <div class="icon">🎵</div>
+                        <div style="font-size: 0.7rem; font-weight: bold; color: #C71585;">
+                            Flower Dance
+                        </div>
+                    </div>
+                    <div style="color: white; font-size: 0.9rem; font-weight: bold;">
+                        🎼 Stardew Valley OST
+                    </div>
+                    <div class="music-controls">
+                        <button>⏮️</button>
+                        <button class="play-btn">▶️</button>
+                        <button>⏭️</button>
+                    </div>
+                    <div style="color: white; font-size: 0.7rem; text-align: center; margin-top: 10px;">
+                        ━━━━●─────── 1:23 / 3:32
+                    </div>
+                </div>
+
+                <!-- Letter Content -->
+                <div class="letter-content">
+                    <h3 class="letter-title">💌 A Special Letter 💌</h3>
+                    <div class="letter-text">
+                        <p><strong>Dearest Noah sungit,</strong></p>
+                        
+                        <p>Happy New Year! 🎉 Alam ko medyo late na 'to pero sige na, extension na lang ng celebration natin hehe. Gusto ko lang sabihin na sobrang special mo sa'kin. Hindi ko inexpect na magkakaroon ako ng kaibigan na katulad mo—yung tipong sobrang comfortable ako na makausap at makasama.</p>
+
+                        <p>I appreciate you every single day, lalo na yung mga kwento mo sa'kin. Yung mga random rants mo, yung mga achievements mo, yung mga problema mo—lahat yan, I'm here for it. Sobrang thankful ako kasi nakilala kita. You make my days brighter, and honestly, mas masaya ang buhay ko dahil nandito ka.</p>
+
+                        <p>I'm always proud of you, especially sa lahat ng achievements mo sa buhay. Yung dedication mo, yung effort mo sa lahat ng ginagawa mo—nakikita ko 'yan lahat. Sobrang inspired ako sayo, and I want you to know na you're doing amazing. Keep shining! ✨</p>
+
+                        <p>Tandaan mo na nandito lang ako palagi pag kailangan mo. Kahit anong oras, kahit saan, I'll be here. Asahan mo na magrerespond ako lagi sayo—kahit busy pa ko, kahit ano pang nangyayari. You're important to me, and I hope you never forget that.</p>
+
+                        <p>Cheers to more memories, more kwentuhan, more laughter, and more adventures together in 2026! Salamat sa lahat, Noah. You're one of the best things that happened to me. 💖</p>
+
+                        <p class="signature">
+                            <em>Happy New Year, Noah sungit! 🎊</em><br><br>
+                            <strong>Pinakamabangs sa lahat,</strong><br>
+                            <strong>Polka ♡</strong>
+                        </p>
+                    </div>
+                    <div class="emojis">
+                        🌸 💖 🐰 🍰 ✨
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showAccept() {
+            document.getElementById('screen-accept').classList.remove('hidden');
+            document.getElementById('screen-refuse').classList.add('hidden');
+            document.getElementById('screen-gifts').classList.add('hidden');
+            document.getElementById('screen-message').classList.add('hidden');
+        }
+
+        function showRefuse() {
+            document.getElementById('screen-accept').classList.add('hidden');
+            document.getElementById('screen-refuse').classList.remove('hidden');
+            document.getElementById('screen-gifts').classList.add('hidden');
+            document.getElementById('screen-message').classList.add('hidden');
+        }
+
+        function showGifts() {
+            document.getElementById('screen-accept').classList.add('hidden');
+            document.getElementById('screen-refuse').classList.add('hidden');
+            document.getElementById('screen-gifts').classList.remove('hidden');
+            document.getElementById('screen-message').classList.add('hidden');
+        }
+
+        function showMessage() {
+            document.getElementById('screen-accept').classList.add('hidden');
+            document.getElementById('screen-refuse').classList.add('hidden');
+            document.getElementById('screen-gifts').classList.add('hidden');
+            document.getElementById('screen-message').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
